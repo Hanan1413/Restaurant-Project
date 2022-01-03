@@ -531,18 +531,7 @@ h1{
 .nav-link{
     font-size: 1.3rem;
 }
-.active{
-    position: relative;
-}
-.active::before{
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 2px;
-    background-color: #fff;
-    left:0;
-    bottom: -3px;
-}
+
 .sub-headline{
     font-size: 10rem;
     margin-top:10rem;
@@ -691,18 +680,7 @@ footer{
 .nav-link{
     font-size: 1.3rem;
 }
-.active{
-    position: relative;
-}
-.active::before{
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 2px;
-    background-color: #fff;
-    left:0;
-    bottom: -3px;
-}
+
 
 footer{
     padding:5rem  2rem;

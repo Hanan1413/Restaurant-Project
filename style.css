@@ -1,5 +1,7 @@
 @import url("https://fonts.googleapis.com/css?family=Cabin|Herr+Von+Muellerhoff|Source+Sans+Pro:400,900&display=swap");
+
 /*Global styles*/
+
 *,
 *::before,
 *::after {
@@ -22,9 +24,6 @@ html {
   color: var(--body-font-color);
   scroll-behavior: smooth;
 }
-/* body{
-    overflow: hidden;
-} */
 
 section {
   padding: 3.9rem 0rem;
@@ -110,15 +109,14 @@ header {
   padding: 4rem 0;
   display: flex;
   flex-direction: column;
-  /* justify-content: space-around; */
   z-index: 1250;
 
   transform: translateX(-100%);
   transition: transform 0.5s;
 }
 
-.nav-item{
-    padding:4rem 2rem;
+.nav-item {
+  padding: 4rem 2rem;
 }
 
 .nav::before {
@@ -234,10 +232,7 @@ header {
   margin-right: -0.7rem;
   margin-bottom: 2.4rem;
 }
-/* .headline-dark{
-    color:var(--body-font-color)
 
-} */
 .separator {
   display: flex;
   align-items: center;
@@ -305,15 +300,6 @@ header {
   background-color: var(--secondary-font-color);
 }
 
-/* End of hero section */
-
-/* Discover section  */
-
-/* .discover-our-story{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-} */
 .global-headline {
   text-align: center;
   margin-top: 6.9rem;
@@ -349,14 +335,6 @@ header {
 .grid img {
   border-radius: 30px;
 }
-
-/* .grid > article {
-    border: 1px solid #ccc;
-    box-shadow: 2px 2px 6px 0px rgba(0, 0, 0, 0.3);
-  } */
-/* .grid image{
-      border-adius:30px;
-  } */
 
 .grid .text {
   padding: 20px;
@@ -536,18 +514,7 @@ footer {
   .nav-link {
     font-size: 1.3rem;
   }
-  .active {
-    position: relative;
-  }
-  .active::before {
-    content: "";
-    position: absolute;
-    width: 100%;
-    height: 2px;
-    background-color: #fff;
-    left: 0;
-    bottom: -3px;
-  }
+
   .sub-headline {
     font-size: 10rem;
     margin-top: 10rem;
