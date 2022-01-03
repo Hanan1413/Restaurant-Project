@@ -1,0 +1,655 @@
+@import url("https://fonts.googleapis.com/css?family=Cabin|Herr+Von+Muellerhoff|Source+Sans+Pro:400,900&display=swap");
+/*Global styles*/
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --main-font: "Source Sans Pro", sans-serif;
+  --secondary-font: "Herr Von Muellerhoff", cursive;
+  --body-font: "Cabin", sans-serif;
+  --main-font-color-dark: #252525;
+  --secondary-font-color: #e0b87c;
+  --body-font-color: #9b9898;
+}
+html {
+  font-family: var(--body-font);
+  font-size: 10px;
+  color: var(--body-font-color);
+  scroll-behavior: smooth;
+}
+/* body{
+    overflow: hidden;
+} */
+
+section {
+  padding: 3.9rem 0rem;
+}
+
+img {
+  width: 100%;
+  max-width: 100%;
+}
+a {
+  text-decoration: none;
+}
+
+p {
+  font-size: 1.6rem;
+}
+h2 {
+  font-size: 2rem;
+}
+
+.container {
+  width: 100%;
+  max-width: 112.5rem;
+  margin: 0 auto;
+  padding: 0 2.4rem;
+}
+.body-btn {
+  font-size: 1.5rem;
+  color: var(--secondary-font-color);
+  position: relative;
+  border-bottom: 2px solid var(--secondary-font-color);
+  transition: color 0.5s;
+  transition: border-bottom 0.5s;
+}
+.body-btn:hover,
+.body-btn:focus {
+  color: var(--main-font-color-dark);
+  border-bottom: 2px solid var(--main-font-color-dark);
+}
+/* End of gloabal styles */
+
+/* Header Styles */
+
+header {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  background-image: linear-gradient(to bottom, rgb(0, 0, 0, 0.5), transparent);
+}
+
+.nav {
+  height: 7.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.menu-toggle {
+  color: #fff;
+  font-size: 2.2rem;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 2.5rem;
+  cursor: pointer;
+  z-index: 1500;
+}
+
+.fa-times-circle {
+  display: none;
+}
+
+.nav-list {
+  list-style: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 80%;
+  height: 80vh;
+  background-color: var(--main-font-color-dark);
+  padding: 4rem 0;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: space-around; */
+  z-index: 1250;
+
+  transform: translateX(-100%);
+  transition: transform 0.5s;
+}
+
+.nav-item{
+    padding:4rem 2rem;
+}
+
+.nav::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 1000;
+  opacity: 0;
+  transform: scale(0);
+  transition: opacity 0.5s;
+}
+
+/* We will apply this class throgh javascript to the body elemnt to have specific style    */
+.open .fas .fa-times-circle {
+  display: block;
+}
+/* this will be hiddin when we apply open class to fa-times */
+.open .fa-bars {
+  display: none;
+}
+
+/* reset   nav to intial state   */
+.open .nav-list {
+  transform: translateX(0);
+}
+
+/* reset   before psudo elemnt  to intial state   */
+.open .nav::before {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Styles of nav links */
+.nav-item {
+  border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.nav-link {
+  display: block;
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 1.6rem;
+  letter-spacing: 2px;
+  margin-right: -2px;
+  transition: color 0.5s;
+}
+
+.nav-link:hover {
+  color: var(--secondary-font-color);
+}
+
+.logo {
+  color: #fff;
+  font-size: 2rem;
+  text-align: center;
+  margin-top: 2rem;
+  font-family: var(--main-font);
+  text-transform: uppercase;
+  font-weight: 900;
+  letter-spacing: 0.5rem;
+  margin-right: -0.5rem;
+}
+
+/* Hero Section */
+.hero {
+  width: 100%;
+  height: 100vh;
+  background: url("img/homme.jpg") center no-repeat;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  text-align: center;
+}
+
+.sub-headline {
+  font-size: 8.5rem;
+  font-family: var(--secondary-font);
+  font-weight: 100;
+  color: var(--secondary-font-color);
+  line-height: 0.4;
+  margin-top: 9.9rem;
+
+  letter-spacing: 2px;
+  /* animation */
+  /* must change opacity to 0 after applying animation */
+  opacity: 0;
+  animation: fadeUp 0.5s forwards;
+  animation-delay: 0.5s;
+}
+.first-letter {
+  text-transform: uppercase;
+  font-size: 10.3rem;
+}
+.headline {
+  color: #fff;
+  font-size: 3.7rem;
+  font-family: var(--main-font);
+  text-transform: uppercase;
+  font-weight: 900;
+  letter-spacing: 0.5rem;
+  margin-right: -0.5rem;
+  /* /* animation */
+  animation: scale 0.5s forwards;
+}
+
+.headline-dark {
+  color: var(--main-font-color-dark);
+  letter-spacing: 0.7rem;
+  margin-right: -0.7rem;
+  margin-bottom: 2.4rem;
+}
+/* .headline-dark{
+    color:var(--body-font-color)
+
+} */
+.separator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.line {
+  width: 100%;
+  max-width: 11rem;
+  height: 0.25rem;
+  background-color: #fff;
+  position: relative;
+  /* animation: ; */
+  /* must change opacity to 0 after applying animation */
+
+  opacity: 0;
+  animation: grow 0.2s forwards;
+  animation-delay: 0.9s;
+}
+.asterisk {
+  font-size: 1.2rem;
+  color: var(--secondary-font-color);
+  margin: 0 1.6rem;
+  /* animation: ; */
+  /* must change opacity to 0 after applying animation */
+
+  opacity: 0;
+  animation: spin 0.7s forwards;
+  animation-delay: 0.8s;
+}
+
+.headline-description h5 {
+  color: #fff;
+  font-size: 1.4rem;
+  font-weight: 100;
+  text-transform: uppercase;
+  margin-bottom: 1.2rem;
+  letter-spacing: 3px;
+  margin-right: -3px;
+}
+.single-animation {
+  opacity: 0;
+  animation: fadeDown 0.5s forwards;
+  animation-delay: 1.5s;
+}
+
+.btn {
+  display: inline-block;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-right: -2px;
+}
+.cta-btn {
+  font-size: 2.1rem;
+  background: #fff;
+  padding: 0.9rem 1.8rem;
+  color: var(--body-font-color);
+  border-radius: 0.4rem;
+  transition: backgound-color 0.5s;
+}
+
+.cta-btn:hover,
+.cta-btn:focus {
+  color: #fff;
+  background-color: var(--secondary-font-color);
+}
+
+/* End of hero section */
+
+/* Discover section  */
+
+/* .discover-our-story{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+} */
+.global-headline {
+  text-align: center;
+  margin-top: 6.9rem;
+}
+.discover-our-story .global-headline {
+  margin-bottom: 6.9rem;
+}
+
+.global-headline .sub-headline {
+  letter-spacing: -1px;
+  line-height: 0.42;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.restaurant-description {
+  margin-bottom: 3rem;
+  text-align: center;
+}
+.restaurant-description p {
+  line-height: 1.6;
+  margin-bottom: 2.4rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  /* grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); */
+
+  grid-gap: 50px;
+  align-items: center;
+}
+.grid img {
+  border-radius: 30px;
+}
+
+/* .grid > article {
+    border: 1px solid #ccc;
+    box-shadow: 2px 2px 6px 0px rgba(0, 0, 0, 0.3);
+  } */
+/* .grid image{
+      border-adius:30px;
+  } */
+
+.grid .text {
+  padding: 20px;
+}
+.grid h2 {
+  text-align: center;
+}
+.service {
+  color: #838181;
+  font-family: "raleway-regular";
+  font-size: 15px;
+  line-height: 28px;
+  margin-top: 40px;
+  letter-spacing: 0.5px;
+  text-align: center;
+}
+/* End of discover section */
+
+/* Tasteful  recipes  section*/
+
+.tasteful-recipes {
+  background: url(img/tasty-2.jpg) center no-repeat;
+  background-size: 100%;
+  /* width: 100%;
+    margin: 0; */
+}
+.between {
+  /* height of section */
+  min-height: 63vh;
+  display: flex;
+  width: 100%;
+
+  justify-content: flex-end;
+  align-items: center;
+}
+.tasty {
+  margin-top: 10rem;
+  float: right;
+  font-size: 0rem;
+
+  /* margin-left: 35rem; */
+}
+
+.tasteful-headline {
+  font-size: 6rem;
+  font-family: var(--secondary-font);
+  font-weight: 100;
+  color: var(--secondary-font-color);
+  line-height: 0.4;
+  padding-top: 4rem;
+  letter-spacing: 2px;
+  opacity: 0;
+  animation: fadeUp 0.5s forwards;
+  animation-delay: 0.5s;
+}
+
+/* End of tasteful  recipes  section*/
+
+/* Discover our menu section */
+.image-group {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 1.2rem;
+  padding: 0 10rem;
+}
+.discover-our-menu {
+  padding: 2 5rem;
+}
+.discover-our-menu .restaurant-description {
+  /* padding:2.3rem 3rem 0 3rem; */
+
+  margin-bottom: 5rem;
+  text-align: center;
+}
+
+/* footer  styles*/
+footer {
+  padding: 9rem 2rem 19rem 2rem;
+  background-color: #121212;
+  color: #fff;
+  text-align: center;
+  position: relative;
+}
+
+.footer-content h4 {
+  font-size: 1.4rem;
+  text-transform: uppercase;
+  font-weight: 100;
+  letter-spacing: 3px;
+  margin-bottom: 3rem;
+}
+.footer-content-about {
+  margin-bottom: 5.4rem;
+}
+.footer-content-about p {
+  line-height: 2;
+}
+
+.social-icons {
+  list-style: none;
+  margin-bottom: 5.4rem;
+  display: flex;
+  justify-content: center;
+}
+.social-icons i {
+  font-size: 2rem;
+  color: #fff;
+  padding: 0.8rem 2rem;
+  transition: color 0.5s;
+}
+.social-icons i:hover,
+.social-icons i:focus {
+  color: var(--secondary-font-color);
+}
+
+.newsletter-form {
+  width: 100%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+.newsletter-input {
+  width: 100%;
+  max-width: 25rem;
+  padding: 1rem;
+  border-radius: 0.4rem;
+}
+.newsletter-btn {
+  background-color: transparent;
+  border: none;
+  color: var(--main-font-color-dark);
+  cursor: pointer;
+  font-size: 1.6rem;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  /* left: 75%; */
+
+  margin-left: 20.5rem;
+}
+/* Footer ends  */
+
+@media screen and (min-width: 900px) {
+  /* Discover section */
+
+  /* Nav section      */
+  section {
+    padding: 7.6rem;
+  }
+  .menu-toggle {
+    display: none;
+  }
+
+  .nav {
+    justify-content: space-between;
+    margin-top: 2rem;
+  }
+  .nav-list {
+    position: initial;
+    width: initial;
+    height: initial;
+    background-color: transparent;
+    padding: 0;
+    justify-content: initial;
+    flex-direction: row;
+    transform: initial;
+    transition: initial;
+  }
+  .nav-item {
+    margin: 2.4rem;
+    border: none;
+  }
+
+  .nav-item:last-child {
+    margin-right: 0;
+  }
+  .nav-link {
+    font-size: 1.3rem;
+  }
+  .active {
+    position: relative;
+  }
+  .active::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: #fff;
+    left: 0;
+    bottom: -3px;
+  }
+  .sub-headline {
+    font-size: 10rem;
+    margin-top: 10rem;
+  }
+
+  .headline {
+    font-size: 4.7rem;
+    letter-spacing: 0.8rem;
+  }
+  .line {
+    max-width: 16rem;
+  }
+
+  /* Testful recipes section */
+  .tasteful-headline {
+    font-size: 8rem;
+  }
+  /* Discover section */
+
+  .restaurant-info {
+    display: flex;
+    align-items: center;
+  }
+  /* to make flex items same size */
+  .restaurant-info > div {
+    flex: 1;
+  }
+  .padding-right {
+    padding-right: 7rem;
+  }
+  footer {
+    padding: 5rem 2rem;
+  }
+  .footer-content {
+    max-width: 77.5rem;
+    margin: auto;
+  }
+  .footer-content-about {
+    max-width: 51.3rem;
+    margin: 0 auto 5.4rem;
+  }
+  .footer-content-divider {
+    display: flex;
+    justify-content: space-between;
+  }
+  .social-media,
+  .newsletter-form {
+    width: 100%;
+    max-width: 27.3rem;
+    margin: 0 1rem;
+  }
+  .newsletter-btn {
+    margin-left: 15rem;
+  }
+}
+/* Animations */
+@keyframes fadeUp {
+  0% {
+    transform: translateY(4rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scale {
+  0% {
+    transform: scale(2);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes grow {
+  0% {
+    width: 0;
+  }
+  100% {
+    opacity: 1;
+    width: 100%;
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    opacity: 1;
+    transform: rotate(-360deg);
+  }
+}
+
+@keyframes fadeDown {
+  0% {
+    transform: translateY(-1rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

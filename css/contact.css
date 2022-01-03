@@ -1,0 +1,393 @@
+@import url('https://fonts.googleapis.com/css?family=Cabin|Herr+Von+Muellerhoff|Source+Sans+Pro:400,900&display=swap');
+
+
+/*Global styles*/
+*,
+*::before,
+*::after{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+:root{
+    --main-font: 'Source Sans Pro', sans-serif;
+    --secondary-font: 'Herr Von Muellerhoff', cursive;
+    --body-font: 'Cabin', sans-serif;
+    --main-font-color-dark: #252525;
+    --secondary-font-color: #e0b87c;
+    --body-font-color: #9b9898;
+}
+html{
+    font-family: var(--body-font);
+    font-size: 10px;
+    /* color: var(--body-font-color); */
+    scroll-behavior: smooth;
+
+}
+
+img{
+    width:100%;
+    height: 100%;
+    object-fit: cover;
+}
+a{
+    text-decoration: none;
+}
+
+h1{
+    font-size: 4rem ;
+}
+
+
+
+
+.container{
+    width: 90%;
+    height: auto;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+ /* End of Global styles */
+ 
+   /* Header Styles */
+
+   header{
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    background-image:linear-gradient(to bottom, rgb(0,0,0,.5), transparent)
+}
+
+.nav{
+    height: 7.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+.menu-toggle{
+    color:#fff;
+    font-size: 2.2rem;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right:2.5rem;
+    cursor: pointer;
+    z-index: 1500;
+}
+.fa-times-circle{
+    display: none;
+}
+
+
+.nav-list{
+    list-style: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 80%;
+    height: 100vh;
+    background-color: var(--main-font-color-dark);
+    padding: 4rem 0;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: space-around; */
+    z-index: 1250;
+
+    transform:translateX(-100%);
+    transition:transform .5s
+}
+
+.nav::before{
+    content:'';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0,0,0,.8);
+    z-index: 1000;
+    opacity: 0;
+    transform: scale(0);
+    transition: opacity .5s;
+}
+
+/* We will apply this class throgh javascript to the body elemnt to have specific style    */
+.open  .fa-times-circle{
+    display: block;
+
+}
+/* this will be hiddin when we apply open class to fa-times */
+.open .fa-bars{
+    display: none;
+}
+
+/* reset   nav to intial state   */
+.open .nav-list{
+    transform: translateX(0);
+}
+
+/* reset   before psudo elemnt  to intial state   */
+.open .nav::before{
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* Styles of nav links */
+.nav-item{
+    border-bottom: 2px solid rgba(255,255,255, .3);
+    padding:4rem 2rem;
+
+}
+
+.nav-link{
+    display: block;
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 1.6rem;
+    letter-spacing: 2px;
+    margin-right: -2px;
+    transition: color .5s;
+}
+
+.nav-link:hover{
+    color:var(--secondary-font-color);
+}
+
+.logo{
+    color:#fff;
+    font-size: 2rem;
+    text-align: center;
+    margin-top: 2rem;
+    font-family: var(--main-font);
+    text-transform: uppercase;
+    font-weight: 900;
+    letter-spacing: .5rem;
+    margin-right: -.5rem;
+}
+
+/* Hero Section */
+.hero{
+    width: 100%;
+    height: 100vh;
+    background: url("../img/contact.jpg") center no-repeat;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+}
+.headline{
+    color: #fff;
+    font-size: 5rem;
+    font-family: var(--main-font);
+    text-transform: uppercase;
+    text-align: center;
+    letter-spacing: .5rem;
+    margin-top:3rem;
+      /* opacity:0; */
+      /* animation: scale .8s forwards; */
+       
+    
+}
+
+/* Btns */
+
+.btn{
+    display: inline-block;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-right: -2px;
+}
+.cta-btn{
+    font-size: 2.1rem;
+    background:#fff;
+    padding:.9rem 1.8rem;
+    padding:.9rem 1rem;
+    margin-top:5rem;
+    color: var(--body-font-color);
+    border-radius: .4rem;
+    transition: backgound-color .5s;
+}
+
+.cta-btn:hover,
+.cta-btn:focus{
+    color:#fff;
+    background-color: var(--secondary-font-color);
+
+}
+.single-animation{
+    opacity: 0;
+    animation: fadeDown .5s forwards;
+    animation-delay: 1.5s;
+}
+
+/* End of hero section */
+
+/* contact section  */
+.contact{
+    display: flex;
+    flex-direction: column;
+    margin:6rem 1.5rem 25rem 1.5rem;
+    /* width:100%; */
+    justify-content:center;
+    align-items: center;
+    
+}
+.form{
+    width:90%;
+}
+.form input{
+    font-size:1.5rem;
+}
+.map iframe{
+    width: 100%;
+    height:300px;
+}
+
+
+textarea:focus, input:focus{
+    outline: none;
+}
+input[type=text] {
+    width: 100%;
+    padding: 12px 10px;
+    margin: 2rem 5rem;
+
+    border: 0;
+    border-bottom: 1px solid #dddddd;
+    margin: 8px 0;
+    display: block;
+    box-sizing: border-box;
+  }
+  
+
+input[type=email] {
+    width: 100%;
+    border: 0;
+
+    padding: 12px 10px;
+    border-bottom: 1px solid #dddddd80;
+    
+    margin: 8px 0;
+    display: block;
+    box-sizing: border-box;
+  }
+  
+  input[type=submit] {
+    width: 100%;
+    background-color: var( --main-font-color-dark);
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: 0;
+    cursor: pointer;
+    transition:background-color .5s;
+  }
+  
+  input[type=submit]:hover{
+    background-color: #e0b87c;
+  }
+  input[type=submit]:focus{
+    background-color: #e0b87c;
+  }
+  
+  textarea.form-control {
+    width:100%;
+    height: 100px;
+    border:0;
+    margin-top:3rem;
+   
+}
+.map iframe{
+    width: 100%;
+    height:330px;
+}
+
+
+
+
+
+
+
+
+
+
+@media screen and  (min-width: 900px){
+
+    /* Discover section */
+
+  /* Nav section      */
+  section{
+    padding: 6rem;
+}
+.menu-toggle{
+    display: none;
+}
+
+.nav{
+    justify-content: space-between;
+    margin-top:2rem
+}
+.nav-list{
+    position: initial ;
+    width: initial;
+    height: initial;
+    background-color: transparent;
+    padding:0;
+    justify-content: initial;
+    flex-direction: row;
+    transform: initial;
+    transition: initial;
+
+}
+.nav-item{
+    margin: 0 2.4rem;
+    border: none;
+
+}
+.nav-item:last-child{
+    margin-right: 0;
+}
+.nav-link{
+    font-size: 1.3rem;
+}
+.active{
+    position: relative;
+}
+.active::before{
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: #fff;
+    left:0;
+    bottom: -3px;
+}
+.contact{
+   flex-direction: row;
+   margin:0;
+   justify-content:space-between;
+
+   
+}
+.form{
+    padding-left: 20px;
+
+}
+.map iframe{
+    width: 100%;
+    height:330px;
+    padding-right: 20px;
+}
+.map iframe{
+    width: 100%;
+    height:330px;
+    padding-right: 20px;
+}
+
+}

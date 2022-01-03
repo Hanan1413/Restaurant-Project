@@ -1,0 +1,587 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@600&display=swap'); */
+@import url('https://fonts.googleapis.com/css?family=Cabin|Herr+Von+Muellerhoff|Source+Sans+Pro:400,900&display=swap');
+
+
+/*Global styles*/
+*,
+*::before,
+*::after{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+:root{
+    --main-font: 'Source Sans Pro', sans-serif;
+    --secondary-font: 'Herr Von Muellerhoff', cursive;
+    --body-font: 'Cabin', sans-serif;
+    --main-font-color-dark: #252525;
+    --secondary-font-color: #e0b87c;
+    --body-font-color: #9b9898;
+}
+html{
+    font-family: var(--body-font);
+    font-size: 10px;
+    color: var(--body-font-color);
+    scroll-behavior: smooth;
+
+}
+
+img{
+    width:100%;
+    height: 100%;
+    object-fit: cover;
+}
+a{
+    text-decoration: none;
+}
+
+h1{
+    font-size: 4rem ;
+}
+
+
+
+
+.container{
+    width: 90%;
+    height: auto;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+ /* End of Global styles */
+ 
+   /* Header Styles */
+
+   header{
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    background-image:linear-gradient(to bottom, rgb(0,0,0,.5), transparent)
+}
+
+.nav{
+    height: 7.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+.menu-toggle{
+    color:#fff;
+    font-size: 2.2rem;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right:2.5rem;
+    cursor: pointer;
+    z-index: 1500;
+}
+.fa-times-circle{
+    display: none;
+}
+
+
+.nav-list{
+    list-style: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 80%;
+    height: 100vh;
+    background-color: var(--main-font-color-dark);
+    padding: 4rem 0;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: space-around; */
+    z-index: 1250;
+
+    transform:translateX(-100%);
+    transition:transform .5s
+}
+
+.nav::before{
+    content:'';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0,0,0,.8);
+    z-index: 1000;
+    opacity: 0;
+    transform: scale(0);
+    transition: opacity .5s;
+}
+
+/* We will apply this class throgh javascript to the body elemnt to have specific style    */
+.open  .fa-times-circle{
+    display: block;
+
+}
+/* this will be hiddin when we apply open class to fa-times */
+.open .fa-bars{
+    display: none;
+}
+
+/* reset   nav to intial state   */
+.open .nav-list{
+    transform: translateX(0);
+}
+
+/* reset   before psudo elemnt  to intial state   */
+.open .nav::before{
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* Styles of nav links */
+.nav-item{
+    border-bottom: 2px solid rgba(255,255,255, .3);
+    padding:4rem 2rem;
+
+}
+
+.nav-link{
+    display: block;
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 1.6rem;
+    letter-spacing: 2px;
+    margin-right: -2px;
+    transition: color .5s;
+}
+
+.nav-link:hover{
+    color:var(--secondary-font-color);
+}
+
+.logo{
+    color:#fff;
+    font-size: 2rem;
+    text-align: center;
+    margin-top: 2rem;
+    font-family: var(--main-font);
+    text-transform: uppercase;
+    font-weight: 900;
+    letter-spacing: .5rem;
+    margin-right: -.5rem;
+}
+
+/* Hero Section */
+.hero{
+    width: 100%;
+    height: 100vh;
+    background: url("../img/menu.jpg") center no-repeat;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+}
+.headline-description{
+    color: #fff;
+    font-size: 2.5rem;
+    font-family: var(--main-font);
+    text-transform: uppercase;
+    text-align: center;
+    /* font-weight: 900; */
+    letter-spacing: .5rem;
+    margin-top:3rem;
+      /* /* animation */
+      opacity:0;
+      animation: scale .8s forwards;
+       
+    
+}
+
+/* End of hero section */
+
+
+
+/* .brand{
+    text-align: center;
+    font-size:5rem;
+    color: var(--secondary-font-color);
+    margin-bottom: 30px;
+} */
+.headline{
+    color: var(--main-font-color-dark);
+    font-size: 3.7rem;
+    font-family: var(--main-font);
+    text-transform: uppercase;
+    text-align: center;
+    /* font-weight: 900; */
+    letter-spacing: .5rem;
+    margin-right: -.5rem;
+      /* /* animation */
+      animation: scale .5s forwards;
+       
+}
+
+.sub-headline{
+    font-size: 8.5rem;
+    font-family: var(--secondary-font);
+    font-weight: 100;
+    line-height: .4;
+    margin-top: 10rem ;
+    color: var(--secondary-font-color);
+    letter-spacing: 2px;
+    text-align: center;
+    /* animation */
+    /* must change opacity to 0 after applying animation */
+    /* opacity: 0;
+    animation: fadeUp .5s forwards;
+    animation-delay: .5s; */
+    
+}
+
+/* Btns */
+
+.btn{
+    display: inline-block;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-right: -2px;
+}
+.cta-btn{
+    font-size: 2.1rem;
+    background:#fff;
+    padding:.9rem 1.8rem;
+    padding:.9rem 1rem;
+    margin-top:5rem;
+    color: var(--body-font-color);
+    border-radius: .4rem;
+    transition: backgound-color .5s;
+}
+
+.cta-btn:hover,
+.cta-btn:focus{
+    color:#fff;
+    background-color: var(--secondary-font-color);
+
+}
+.single-animation{
+    opacity: 0;
+    animation: fadeDown .5s forwards;
+    animation-delay: 1.5s;
+}
+/* End of Btns */
+
+/* img grid section */
+.img-grid{
+    min-height:100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem 2rem;
+    margin-bottom: 10rem;
+
+
+}
+
+.search-result {
+    margin-top: 50px;
+    width: 100%;
+    display: grid;
+    grid-gap: 25px;
+    grid-template: auto / repeat(auto-fit, minmax(300px, 1fr));
+  }
+.item{
+    width: 100%;
+    border-radius: 8px;
+    background-color:rgb(34, 21, 21);
+    /* Padding for item  */
+    padding: 15px 15px 30px 15px;
+    overflow: hidden;
+
+
+    /* width: 300px; */
+            /* height: 300px; */
+            /* overflow: hidden; */
+            /* margin: 0 auto; */
+}
+
+.item img{
+    width: 100%;
+    height: 300px;
+    border-radius: 4px;
+
+    /* Animation to make imge zoom  */
+    transition: 0.5s all ease-out;
+
+
+}
+.item:hover img {
+    /* Animation to make imge zoom  */
+
+    transform: scale(1.2);
+}
+
+.flex-container{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* .item .title{
+    color: whitesmoke;
+    margin: 20px 10px 0 0;
+    font-size: 1.8rem;
+    font-weight: 400;
+    
+} */
+
+.view-btn{
+    text-decoration: none;
+    text-align: center;
+    width: 130px;
+    padding: 10px 0;
+    background-color: #404041;
+    color: whitesmoke;
+    font-size: 1.4rem;
+    margin-top: 20px;
+    align-self: flex-start;
+
+}
+.item-data{
+    color: whitesmoke;
+    display: block;
+    margin-top: 4rem;
+    font-size: 1.8rem;
+    font-weight: 400;    
+    letter-spacing: .05rem;
+    line-height: 2rem;
+}
+/* End img grid section */ 
+
+
+
+
+
+
+/* footer  styles*/
+footer{
+    padding:9rem 2rem 19rem 2rem;
+    background-color: #121212;
+    color: #fff;
+    text-align: center;
+    position: relative;
+}
+
+.footer-content h4{
+    font-size:1.4rem;
+    text-transform: uppercase;
+    font-weight: 100;
+    letter-spacing: 3px;
+    margin-bottom: 3rem;
+
+
+}
+.footer-content-about{
+    margin-bottom: 5.4rem;
+}
+.footer-content-about p{
+    line-height: 2;
+}
+
+.social-icons{
+    list-style: none;
+    margin-bottom: 5.4rem;
+    display: flex;
+    justify-content: center;
+}
+.social-icons i{
+    font-size:  2rem;
+    color:#fff;
+    padding: .8rem 2rem ;
+    transition: color .5s;
+
+}
+.social-icons i:hover,
+.social-icons i:focus{
+    color:var(--secondary-font-color)
+}
+.newsletter-form{
+    width: 100%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+.newsletter-input{
+    width: 100%;
+    max-width: 25rem;
+    padding: 1rem;
+    border-radius: .4rem;
+}
+.newsletter-btn{
+    background-color: transparent;
+    border:none;
+    color:var(--main-font-color-dark);
+    cursor: pointer;
+    font-size: 1.6rem;
+    position: absolute;
+    top:50%;
+    transform: translateY(-50%);
+    /* left: 75%; */
+
+    
+     margin-left:20.5rem; 
+
+
+}
+
+/* End of footer section */
+/* Animation */
+
+@keyframes scale {
+    0%{
+        transform:scale(2);
+    }
+    100%{
+        opacity: 1;
+        transform: scale(1);
+    }
+    
+    
+}
+
+
+@keyframes fadeDown {
+    0%{
+        transform:translateY(-1rem)
+    }
+    100%{
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+
+
+
+
+@media screen and  (min-width: 900px){
+
+    /* Discover section */
+
+  /* Nav section      */
+  /* section{
+    padding: 7.6rem;
+} */
+.menu-toggle{
+    display: none;
+}
+
+.nav{
+    justify-content: space-between;
+    margin-top:2rem
+}
+.nav-list{
+    position: initial ;
+    width: initial;
+    height: initial;
+    background-color: transparent;
+    padding:0;
+    justify-content: initial;
+    flex-direction: row;
+    transform: initial;
+    transition: initial;
+
+}
+.nav-item{
+    margin: 0 2.4rem;
+    border: none;
+
+}
+.nav-item:last-child{
+    margin-right: 0;
+}
+.nav-link{
+    font-size: 1.3rem;
+}
+.active{
+    position: relative;
+}
+.active::before{
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: #fff;
+    left:0;
+    bottom: -3px;
+}
+.sub-headline{
+    font-size: 10rem;
+    margin-top:10rem;
+}
+
+.headline{
+    font-size:4.7rem;
+    letter-spacing: .8rem;
+}
+
+
+/* Testful recipes section */
+.tasteful-headline{
+    
+    font-size: 8rem;
+}
+
+footer{
+    padding:5rem  2rem;
+}
+
+.footer-content{
+    max-width: 77.5rem;
+    margin: auto;
+}
+.footer-content-about{
+    max-width: 51.3rem;
+    margin: 0 auto 5.4rem;
+}
+.footer-content-divider{
+    display: flex;
+    justify-content: space-between;
+}
+.social-media,
+.newsletter-form{
+    width: 100%;
+    max-width: 27.3rem;
+    margin: 0 1rem;
+}
+.newsletter-btn{
+   margin-left: 15rem;
+}
+
+.footer-content{
+max-width: 77.5rem;
+margin: auto;
+}
+.footer-content-about{
+max-width: 51.3rem;
+margin: 0 auto 5.4rem;
+}
+.footer-content-divider{
+display: flex;
+justify-content: space-between;
+}
+.social-media,
+.newsletter-form{
+width: 100%;
+max-width: 27.3rem;
+margin: 0 1rem;
+}
+.newsletter-btn{
+margin-left: 15rem;
+}
+
+
+
+}
